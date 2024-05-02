@@ -1,11 +1,9 @@
 model_names = {
-    "tiny.en": "ggml-tiny.en.bin",
-    "tiny.en.q5": "ggml-model-whisper-tiny.en-q5_1.bin",
-    "base.en.q5": "ggml-model-whisper-base.en-q5_1.bin",
+    "medium": "ggml-medium.en.bin",
+    "large": "ggml-large-v3.bin",
 }
 
 model_urls = {
-    "tiny.en": "https://firebasestorage.googleapis.com/v0/b/model-innovatorved.appspot.com/o/ggml-model-whisper-base.en-q5_1.bin?alt=media",
-    "tiny.en.q5": "https://firebasestorage.googleapis.com/v0/b/model-innovatorved.appspot.com/o/ggml-model-whisper-tiny.en-q5_1.bin?alt=media",
-    "base.en.q5": "https://firebasestorage.googleapis.com/v0/b/model-innovatorved.appspot.com/o/ggml-model-whisper-base.en-q5_1.bin?alt=media",
+    "medium": "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-medium.en.bin",
+    "large": "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-large-v3.bin",
 }

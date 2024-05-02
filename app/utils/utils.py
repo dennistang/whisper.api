@@ -42,17 +42,16 @@ def print_routes(app):
     print("\n")
 
 
-def transcribe_file(path: str = None, model="ggml-model-whisper-tiny.en-q5_1.bin"):
-    """./binary/whisper -m models/ggml-tiny.en.bin -f Rev.mp3 out.wav -nt --output-text out1.txt"""
+def transcribe_file(path: str = None, model="ggml-medium.en.bin"):
     try:
         if path is None:
             raise HTTPException(status_code=400, detail="No path provided")
         rand = uuid.uuid4()
-        outputFilePath: str = f"transcribe/{rand}.txt"
-        output_audio_path: str = f"audio/{rand}.wav"
-        command: str = f"./binary/whisper -m models/{model} -f {path} {output_audio_path} -nt --output-text {outputFilePath}"
+        outputFilePath: str = f"transcribe/{rand}"
+        output_audio_path: str = path
+        command: str = f"./binary/whisper -m models/{model} -f {path} -nt --output-txt -of {outputFilePath}"
         execute_command(command)
-        f = open(outputFilePath, "r")
+        f = open(f"{outputFilePath}.txt", "r")
         data = f.read()
         f.close()
         return [data, output_audio_path]
@@ -73,7 +72,7 @@ def execute_command(command: str) -> str:
 def save_audio_file(file=None):
     if file is None:
         return ""
-    path = f"audio/{uuid.uuid4()}.mp3"
+    path = f"audio/{uuid.uuid4()}.wav"
     with open(path, "wb") as f:
         f.write(file.file.read())
     return path
@@ -100,12 +99,12 @@ def get_audio_duration(audio_file):
 
 def get_model_name(model: str = None):
     if model is None:
-        model = "tiny.en.q5"
+        model = "medium"
 
     if model in model_names.keys():
         return model_names[model]
 
-    return model_names["tiny.en.q5"]
+    return model_names["medium"]
 
 
 def download_from_drive(url, output):

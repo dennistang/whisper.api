@@ -23,7 +23,7 @@ async def post_audio(
     background_tasks: BackgroundTasks,
     request: Request,
     file: UploadFile = File(...),
-    model: str = "tiny.en.q5",
+    model: str = "medium",
     Authentication: Annotated[Union[str, None], Header()] = None,
 ):
     try:

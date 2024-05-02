@@ -5,6 +5,9 @@ from pydantic import AnyHttpUrl, field_validator
 
 from pydantic_settings import BaseSettings
 
+from dotenv import load_dotenv
+
+load_dotenv()  # loads environment variables from .env file
 
 class Settings(BaseSettings):
     API_V1_STR: str = "/api/v1"

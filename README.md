@@ -47,7 +47,7 @@ To get your token, use the following command:
 
 ```bash
 curl -X 'POST' \
-  'https://innovatorved-whisper-api.hf.space/api/v1/users/get_token' \
+  'http://localhost:8000/api/v1/users/get_token' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -87,15 +87,15 @@ curl -X 'POST' \
 - [https://openai.com/blog/whisper/](https://openai.com/blog/whisper/)
 - [https://github.com/ggerganov/whisper.cpp](https://github.com/ggerganov/whisper.cpp)
 
-  
+
 ## Authors
 
 - [Ved Gupta](https://www.github.com/innovatorved)
 
-  
+
 ## 🚀 About Me
 Just try to be a developer!
-  
+
 ## Support
 
 For support, email vedgupta@protonmail.com
